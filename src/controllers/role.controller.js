@@ -11,7 +11,7 @@ export const roleController = {
       next(err);
     }
   },
-
+  //
   findAll: async function (req, res, next) {
     try {
       const result = await roleService.findAll(req);
