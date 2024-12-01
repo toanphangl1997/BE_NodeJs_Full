@@ -11,12 +11,23 @@ import userRouter from "./user.router.js";
 const rootRouter = express.Router();
 
 rootRouter.use("/api-docs", swaggerUi.serve);
-rootRouter.get(
-  "/api-docs",
+rootRouter.get("/api-docs", (req, res, next) => {
+  // http://localhost:3069
+  const urlServer = `${req.protocol}://${req.get("host")}`;
+  console.log({ urlServer });
+  // swaggerDocument.servers
+
+  swaggerDocument.servers = [
+    // ...swaggerDocument.servers
+    {
+      url: urlServer,
+      description: "URL server deploy",
+    },
+  ];
   swaggerUi.setup(swaggerDocument, {
     swaggerOptions: { persistAuthorization: true },
-  })
-);
+  })(req, res);
+});
 
 rootRouter.get(
   `/`,

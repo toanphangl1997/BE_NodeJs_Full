@@ -1,4 +1,15 @@
 const video = {
+  "/video/video-list": {
+    get: {
+      tags: [`Videos`],
+      responses: {
+        200: {
+          description: `oke`,
+        },
+      },
+    },
+  },
+
   "/video/video-list/{id}": {
     get: {
       security: [
@@ -71,6 +82,37 @@ const video = {
           description: `oke`,
         },
       },
+      requestBody: {
+        content: {
+          "multipart/from-data": {
+            schema: {
+              type: "object",
+              properties: {
+                title: { type: `string` },
+                file: {
+                  type: `file`,
+                  formart: `binary`,
+                },
+                files: {
+                  type: `array`,
+                  items: {
+                    type: `file`,
+                    formart: `binary`,
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+
+  "/video/video-delete": {
+    delete: {
+      security: [{ longToken: [] }],
+      tags: [`role`],
+      responses: { 200: { description: `oke` } },
       requestBody: {
         content: {
           "multipart/from-data": {

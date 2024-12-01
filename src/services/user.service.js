@@ -34,7 +34,6 @@ export const userService = {
       totalPage: totalPage,
       items: users || [],
     };
-    return `This action returns all user`;
   },
 
   findOne: async function (req) {

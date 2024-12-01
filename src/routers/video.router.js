@@ -5,10 +5,9 @@ import checkPermission from "../common/middlewares/check-permisson.middleware.js
 
 const videoRouter = express.Router();
 
-videoRouter.use(protect);
-// videoRouter.use(checkPermission)
-
 videoRouter.get("/video-list", checkPermission, videoController.listVideo);
+
+videoRouter.use(protect);
 
 videoRouter.get("/video-type", videoController.typeVideo);
 
