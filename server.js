@@ -22,7 +22,7 @@ const app = express();
 
 const server = createServer(app);
 
-// Sử dụng middleware chuyển JSON sang đối tượng JS (object,...)
+// Sử dụng middleware chuyển JSON sang đối tượng JS (object,...)ádasd
 app.use(express.json());
 // để kết nối với tát cả localhost khác
 // app.use(cors());
