@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Đăng nhập vào docker
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        run: docker login -u toanphangl1997 -p${{secrets.PASS_DOCKER}}
 
       - name: build image
         run: docker build . -t toanphangl1997/img-be_cyber_media:latest
