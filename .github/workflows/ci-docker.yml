@@ -4,7 +4,7 @@ name: CI docker
 # Khi nào chạy
 on:
   push:
-    branches: ["main"]
+    branches: ["master"]
 
 # chạy công việc gì
 jobs:
